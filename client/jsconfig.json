@@ -2,9 +2,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"] // Note the './src/*' relative to baseUrl
     },
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "target": "es2020", // Or "esnext"
+    "module": "esnext",
+    "moduleResolution": "bundler" // Or "node" depending on your setup
   },
   "include": ["src"]
 }

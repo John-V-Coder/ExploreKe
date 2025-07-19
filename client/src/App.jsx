@@ -17,18 +17,26 @@ import ShoppingAccount from './pages/shopping-view/account'
 import ShoppingHome from './pages/shopping-view/home'
 import ShoppingCheckout from './pages/shopping-view/checkout'
 import ShoppingListing from './pages/shopping-view/listing'
-
-
+import { checkAuth } from "./store/auth-slice/index";
+import { useDispatch, useSelector } from "react-redux";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useEffect } from "react";
 
 
 
 function App() {
-   
-  const isAuthenticated = true;
-  const user = {
-    name : 'Omondijohn669',
-    role : 'null',
-  };
+  const { user, isAuthenticated, isLoading } = useSelector(
+    (state) => state.auth
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, [dispatch]);
+
+  if (isLoading) return <Skeleton className="w-[800] bg-black h-[600px]" />;
+
+  console.log(isLoading, user);
 
   return (
    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">

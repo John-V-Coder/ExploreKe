@@ -5,6 +5,7 @@ import ShoppingLayout from './components/shopping-view/layout'
 import CheckAuth from './components/common/check-auth'
 
 
+import UnauthPage from './pages/unauth-page/index';
 import AuthLogin from './pages/auth/login';
 import AuthRegister from './pages/auth/register';
 import AdminDashboard from './pages/admin-view/dashboard'
@@ -23,8 +24,11 @@ import ShoppingListing from './pages/shopping-view/listing'
 
 function App() {
    
-  const isAuthenticated = false;
-  const user = null
+  const isAuthenticated = true;
+  const user = {
+    name : 'Omondijohn669',
+    role : 'null',
+  };
 
   return (
    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
@@ -59,7 +63,8 @@ function App() {
            <Route path="home" element={<ShoppingHome />}/>
            <Route path="listing" element={<ShoppingListing />}/>
       </Route>
-      <Route path="*" element={<NotFound />}></Route>
+      <Route path="*" element={<NotFound />} />
+      <Route path="/unauthpage" element={<UnauthPage />}/>
      </Routes>
     </div>
   )

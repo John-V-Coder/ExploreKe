@@ -1,21 +1,20 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet } from "react-router-dom";
 
-
-function AuthLayout(){
-    return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-            <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
-                <div className="text-center mb-6">
-                    <h1 className="text-3xl font-bold mb-4"> 
-                    ExploreKe Authentication
-                    </h1>
-                </div>
-            </div>
-            <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
-                <Outlet />
-            </div>
+function AuthLayout() {
+  return (
+    <div className="flex min-h-screen w-full">
+      <div className="hidden lg:flex items-center justify-center bg-black w-1/2 px-12">
+        <div className="max-w-md space-y-6 text-center text-primary-foreground">
+          <h1 className="text-4xl font-extrabold tracking-tight">
+            Welcome to ECommerce Shopping
+          </h1>
         </div>
-    );
+      </div>
+      <div className="flex flex-1 items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
+        <Outlet />
+      </div>
+    </div>
+  );
 }
 
 export default AuthLayout;
